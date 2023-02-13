@@ -10,6 +10,12 @@ pipeline {
       }
     }
 
+    stage('Build Docker Image') {
+         steps {
+             sh 'docker build -t dockerdemoimage .'
+         }
+     }
+
     stage('Deploy') {
       steps {
         sh 'java -jar target/demo-0.0.1-SNAPSHOT.jar'
